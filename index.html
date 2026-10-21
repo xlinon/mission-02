@@ -16,33 +16,45 @@
     </header>
     <nav>
         <ul>
-            <li class="nav-links"><a class="#">Expense</a></li>
-            <li class="nav-links"><a class="#">Income</a></li>
-            <li class="nav-links"><a class="#">Finance Breakdown</a></li>
+            <li class="nav-links"><a href="#">Expense</a></li>
+            <li class="nav-links"><a href="#">Income</a></li>
+            <li class="nav-links"><a href="#">Finance Breakdown</a></li>
         </ul>
     </nav>
     <main>
         <section id="balance">
-            <h2>Total Balance: $<span id="total-balance">0</span></h2>
-            <p>Latest Income: $<span id="latest-income">0</span></p>
-            <p>Latest Expense: $<span id="latest-expense">0</span></p>
+            <div id="available-balance">
+                <h1>$<span id="total-balance">100.00</span></h2>
+                <h2>Available Balance</h2>
+            </div>
+            <div id="latest">
+                <p>Latest Income: $<span id="latest-income">0</span></p>
+                <p>Latest Expense: $<span id="latest-expense">0</span></p>
+            </div>
         </section>
         <section id="history">
             <form id="log-history">
                 <input type="number" id="amount-input">
                 <select name="type" id="type" placeholder="type">
                     <option value="expense">Expense</option>
-                    <option value="income">Satisfactory</option>
+                    <option value="income">Income</option>
                 </select>
                 <button id="add-btn">+</button>
 
             </form>
             <ul>
-                <li><span class="amount">0</span></li>
+                <li><span class="amount">0</span> <span class="type">Expense</span></li>
+                <li><span class="amount">0</span> <span class="type">Expense</span></li>
+                <li><span class="amount">0</span> <span class="type">Expense</span></li>
+                <li><span class="amount">0</span> <span class="type">Expense</span></li>
             </ul>
         </section>
         <section id="wellbeing">
             <h2>You can afford a <span id="afford">PIE</span></h2>
+        </section>
+        <section id="cards">
+            <h2>Card</h2>
+            <div class="credit-card"><img src="img/creditcard.png"></div>
         </section>
     </main>
 </body>
