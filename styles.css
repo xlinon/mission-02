@@ -69,6 +69,7 @@ main {
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
+  max-height: 80vh;
 }
 
 #balance,
@@ -104,11 +105,100 @@ main {
 }
 #history {
   grid-row: 1/-1;
-}
-#history ul {
-  margin: 20px;
+  max-height: 100vh;
 }
 
+#log-history {
+  margin: 15px 5px 0;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--design-color);
+}
+
+#amount-input {
+  padding: 5px 10px;
+  width: 50%;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  color: var(--text-color1);
+}
+#amount-input:focus {
+  border-color: #3b82f6; /* Blue highlight */
+  box-shadow: 0 0 0 3px var(--accent-color);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#type {
+  padding: 5px;
+  background-color: var(--main-color);
+  color: var(--text-color1);
+  border-radius: 10px;
+}
+
+#add-btn {
+  padding: 5px 9px;
+  background-color: var(--main-color);
+  color: var(--text-color1);
+  border-radius: 50%;
+  border: 1px solid var(--design-color);
+}
+
+#add-btn:hover {
+  background-color: var(--design-color);
+}
+
+#add-btn:active {
+  background-color: var(--accent-color1);
+  color: var(--text-color);
+}
+
+#history ul {
+  margin: 2px 0px 2px 10px;
+  list-style: none;
+  max-height: 100%;
+  overflow-y: auto;
+}
+#history ul::-webkit-scrollbar {
+  width: 8px; /* Width of the entire vertical scrollbar */
+  margin-left: 0;
+}
+
+#history ul::-webkit-scrollbar-track {
+  background: var(--accent-color1); /* Color of the tracking area */
+  border-radius: 10px;
+}
+#history ul::-webkit-scrollbar-thumb {
+  background: var(--design-color); /* Color of the draggable scroll handle */
+  border-radius: 10px; /* Makes the handle rounded */
+}
+.expense::before {
+  content: "-";
+  color: rgb(122, 25, 25);
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+.income::before {
+  content: "+";
+  color: rgb(25, 91, 122);
+  font-size: 1.1rem;
+  margin-right: 5px;
+}
+.history-log {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--design-color);
+  padding: 5px;
+}
+
+.history-log .type {
+  margin-right: 10px;
+}
 #wellbeing {
   font-size: 1.8rem;
   text-align: center;
