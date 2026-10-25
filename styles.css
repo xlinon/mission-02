@@ -17,8 +17,8 @@ body {
   color: var(--text-color);
   font-family: "Oswald", sans-serif;
   display: grid;
-  grid-template-columns: 150px 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-columns: 20vw 1fr;
+  grid-template-rows: 10vh 1fr;
 }
 header {
   grid-column: 1/-1;
@@ -29,6 +29,9 @@ header {
   font-family: "Bilbo Swash Caps", cursive;
   font-weight: 400;
   font-style: normal;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
 }
 nav {
   grid-column: 1;
@@ -94,6 +97,7 @@ main {
 #balance #available-balance {
   margin: 5px auto;
 }
+
 #balance h1 {
   font-size: 3rem;
 }
@@ -110,6 +114,7 @@ main {
 
 #log-history {
   margin: 15px 5px 0;
+  height: 10%;
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 20px;
@@ -121,7 +126,7 @@ main {
   width: 50%;
   background-color: var(--main-color);
   border: 1px solid var(--main-color);
-  border-radius: 10px;
+  border-radius: 20px;
   color: var(--text-color1);
 }
 #amount-input:focus {
@@ -134,18 +139,20 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 #type {
-  padding: 5px;
+  width: 25%;
+  padding: 15px;
   background-color: var(--main-color);
   color: var(--text-color1);
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 #add-btn {
-  padding: 5px 9px;
+  width: 10%;
   background-color: var(--main-color);
   color: var(--text-color1);
   border-radius: 50%;
   border: 1px solid var(--design-color);
+  font-size: 2rem;
 }
 
 #add-btn:hover {
@@ -157,37 +164,36 @@ input::-webkit-inner-spin-button {
   color: var(--text-color);
 }
 
-#history ul {
-  margin: 2px 0px 2px 10px;
+#history-list {
   list-style: none;
   max-height: 100%;
   overflow-y: auto;
 }
-#history ul::-webkit-scrollbar {
+#history-list::-webkit-scrollbar {
   width: 8px; /* Width of the entire vertical scrollbar */
   margin-left: 0;
 }
 
-#history ul::-webkit-scrollbar-track {
+#history-list::-webkit-scrollbar-track {
   background: var(--accent-color1); /* Color of the tracking area */
   border-radius: 10px;
 }
-#history ul::-webkit-scrollbar-thumb {
+#history-list::-webkit-scrollbar-thumb {
   background: var(--design-color); /* Color of the draggable scroll handle */
   border-radius: 10px; /* Makes the handle rounded */
 }
 .expense::before {
   content: "-";
   color: rgb(122, 25, 25);
-  font-size: 1.2rem;
-  margin-right: 5px;
+  font-size: 1.5rem;
+  margin: 0 5px;
 }
 
 .income::before {
   content: "+";
   color: rgb(25, 91, 122);
   font-size: 1.1rem;
-  margin-right: 5px;
+  margin: 0 5px;
 }
 .history-log {
   display: flex;
