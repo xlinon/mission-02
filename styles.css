@@ -22,14 +22,13 @@ body {
 }
 header {
   grid-column: 1/-1;
-  grid-row: 0.1;
   background-color: var(--design-color);
   color: var(--text-color1);
   padding: 5px 20px;
   font-family: "Bilbo Swash Caps", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
 }
@@ -37,6 +36,7 @@ nav {
   grid-column: 1;
   grid-row: 2/-1;
   background-color: var(--accent-color1);
+  height: 100%;
 }
 
 nav ul {
@@ -52,6 +52,7 @@ nav ul {
   width: 100%;
   border-bottom: 1px solid var(--design-color);
   color: var(--text-color);
+  font-size: 1.5rem;
 }
 
 .nav-links a:hover {
@@ -72,7 +73,7 @@ main {
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
-  max-height: 80vh;
+  height: 90%;
 }
 
 #balance,
@@ -81,7 +82,6 @@ main {
 #cards {
   background-color: var(--accent-color1);
   border-radius: 20px;
-  padding: 5px;
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 10px #0f0f0f;
@@ -96,9 +96,13 @@ main {
 }
 #balance #available-balance {
   margin: 5px auto;
+  text-align: center;
 }
 
-#balance h1 {
+#available-balance h1 {
+  font-size: 7rem;
+}
+#available-balance h2 {
   font-size: 3rem;
 }
 
@@ -106,10 +110,11 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
+  font-size: 2rem;
 }
 #history {
   grid-row: 1/-1;
-  max-height: 100vh;
+  height: 100%;
 }
 
 #log-history {
@@ -200,28 +205,291 @@ input::-webkit-inner-spin-button {
   justify-content: space-between;
   border-bottom: 2px solid var(--design-color);
   padding: 5px;
+  font-size: 1.5rem;
 }
 
 .history-log .type {
   margin-right: 10px;
 }
+
+.delete-btn {
+  font-size: 1rem;
+  margin: 10px;
+  color: #787977;
+  cursor: pointer;
+}
+.delete-btn:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
 #wellbeing {
   font-size: 1.8rem;
   text-align: center;
+  padding: 20px;
 }
-#wellbeing h2 {
+#wellbeing #afford {
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #cards {
   padding: 20px;
 }
+#cards h2 {
+  margin: 10px 20px 0;
+  font-size: 2.5rem;
+}
 #cards .credit-card {
   text-align: center;
-  margin: auto;
+  margin: 10px auto;
 }
 #cards .credit-card img {
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   padding: 0;
-  width: 90%;
+  width: 80%;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    grid-template-columns: 15vw 1fr;
+    grid-template-rows: 10vh 1fr;
+  }
+  header {
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+  main {
+    gap: 10px;
+  }
+  #balance {
+    padding: 20px 0;
+  }
+  #available-balance h1 {
+    font-size: 5rem;
+  }
+  #available-balance h2 {
+    font-size: 2rem;
+  }
+  #balance #latest {
+    font-size: 1.4rem;
+  }
+  #log-history {
+    height: 12%;
+  }
+
+  #amount-input {
+    padding: 5px 10px;
+    width: 40%;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 20px;
+    color: var(--text-color1);
+  }
+  #type {
+    width: 35%;
+    padding: 5px;
+  }
+
+  #add-btn {
+    margin-top: 2px;
+    height: 90%;
+    width: 15%;
+    font-size: 1.7rem;
+  }
+  .history-log {
+    font-size: 1.2rem;
+  }
+  #wellbeing {
+    font-size: 1.2rem;
+  }
+  #cards {
+    padding: 0px;
+  }
+  #cards h2 {
+    margin: 20px 20px 0;
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  body {
+    grid-template-columns: 12vw 1fr;
+    grid-template-rows: 13vh 1fr;
+  }
+  header {
+    font-size: 1rem;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+  main {
+    gap: 10px;
+  }
+  #balance {
+    padding: 10px 0;
+    justify-content: space-evenly;
+  }
+  #available-balance h1 {
+    font-size: 3rem;
+  }
+  #available-balance h2 {
+    font-size: 1.7rem;
+  }
+  #balance #latest {
+    font-size: 1.1rem;
+  }
+  #log-history {
+    height: 22%;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  #amount-input {
+    padding: 10px;
+    margin: 0 10px;
+    width: 90%;
+  }
+  #type {
+    width: 70%;
+    height: 60%;
+    padding: 5px;
+    margin: 10px;
+  }
+
+  #add-btn {
+    margin: 15px 5px;
+    height: 50%;
+    width: 12%;
+    font-size: 1.2rem;
+  }
+  .expense::before {
+    font-size: 1rem;
+    margin: 0 5px;
+  }
+
+  .income::before {
+    font-size: 1rem;
+    margin: 0 5px;
+  }
+  .history-log {
+    font-size: 1rem;
+  }
+  #wellbeing {
+    font-size: 0.9rem;
+  }
+  #cards h2 {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-rows: 100px 50px 1fr;
+  }
+  header {
+    font-size: 2rem;
+  }
+  nav {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: space-between;
+    padding: 0;
+  }
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 10px 40px;
+    border-bottom: none;
+    margin: 0;
+  }
+  main {
+    grid-column: 1/-1;
+    grid-row: 3;
+    margin: 10px;
+    gap: 15px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    height: 90%;
+    margin: 20px 50px;
+  }
+  #balance {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+  #balance #available-balance {
+    margin: 10px 0;
+  }
+  #available-balance h1 {
+    font-size: 6rem;
+  }
+  #available-balance h2 {
+    font-size: 2rem;
+  }
+  #balance #latest {
+    font-size: 1.5rem;
+  }
+  #history {
+    grid-column: 1/-1;
+    grid-row: 2/4;
+  }
+  #log-history {
+    height: 16%;
+    margin: 15px 5px 0;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  #type,
+  #amount-input {
+    font-size: 1.1rem;
+  }
+  #add-btn {
+    margin: 15px 20px;
+    height: 50%;
+    width: 6%;
+    font-size: 1.2rem;
+  }
+  .expense::before {
+    font-size: 1.5rem;
+  }
+
+  .income::before {
+    font-size: 1.5rem;
+  }
+  .history-log {
+    padding: 5px;
+    font-size: 1.5rem;
+  }
+  #wellbeing {
+    font-size: 2rem;
+  }
+  #cards {
+    padding: 10px;
+  }
+  #cards h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  #available-balance h1 {
+    font-size: 4rem;
+  }
+  #available-balance h2 {
+    font-size: 1.7rem;
+  }
+  #balance #latest {
+    font-size: 1.2rem;
+  }
+  #wellbeing {
+    font-size: 1.5rem;
+  }
 }
