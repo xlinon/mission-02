@@ -20,7 +20,7 @@ function logType() {
   }
   // else the amount input must be positive
   else {
-    amountInput.value = +amountInput.valueamountInput.value; // returns positive amount with unary + operator
+    amountInput.value = +amountInput.value; // returns positive amount with unary + operator
   }
 }
 
@@ -32,19 +32,19 @@ function logHistory(event) {
   displayHistoryLog(); // calls a function to display the updated array
   totalBalance();
   updateLatest();
-  amountInput.value = ""; //refreshes the input element so it becomes blank after submitting
 }
 
 function deleteLog(event) {
   // event.target returns the element that triggered the event in this instance the specific delete button in the list
   const logToBeRemoved = event.target.getAttribute("data-index"); // getAttribute returns the index of the element that triggered the event stored in the data-index attribute
-  historyList.splice(logToBeRemoved, 1); //splice removes an element starting from the index of the triggered element by 1 element
+  historyArray.splice(logToBeRemoved, 1); //splice removes an element starting from the index of the triggered element by 1 element
   displayHistoryLog();
   totalBalance();
   updateLatest();
 }
 
 function displayHistoryLog() {
+  amountInput.value = ""; //refreshes the input element so it becomes blank after submitting
   //refreshes the ul element so inputs would not be duplicated
   historyListDisplay.innerHTML = "";
   //loops through the elements inside the array
@@ -57,7 +57,7 @@ function displayHistoryLog() {
       </div> 
       <div>
       <span class="type">Expense</span>
-      <span class="delete-btn" data-index="${historyList.indexOf(log)}">delete</span>
+      <span class="delete-btn" data-index="${historyArray.indexOf(log)}">delete</span>
       </div></li>`; //displays absolute unit for the amount so the "-" would not be visible;
       // the delete button has a "data-" attribute which stores the index of the element in the array
     } else {
@@ -67,7 +67,7 @@ function displayHistoryLog() {
       </div> 
       <div>
       <span class="type">Income</span>
-      <span class="delete-btn" data-index="${historyList.indexOf(log)}">delete</span>
+      <span class="delete-btn" data-index="${historyArray.indexOf(log)}">delete</span>
       </div></li>`;
     }
   }
@@ -75,7 +75,7 @@ function displayHistoryLog() {
 
 function updateLatest() {
   //find loops through the array and returns the first occurence of a specified value
-  const latestExpense = historyList.find((log) => log.type === "expense"); // takes a call back function as an argument in this instance, log is the current object in the array its checking and it is trying to find the first occurence of log.type = "expense"
+  const latestExpense = historyArray.find((log) => log.type === "expense"); // takes a call back function as an argument in this instance, log is the current object in the array its checking and it is trying to find the first occurence of log.type = "expense"
   if (latestExpense !== undefined) {
     // if the type is found, update the latest expense element to the amount value
     latestExpenseEl.textContent = latestExpense.amount.toLocaleString("en-US", {
@@ -85,7 +85,7 @@ function updateLatest() {
   } else {
     latestExpenseEl.textContent = "$0";
   }
-  const latestIncome = historyList.find((log) => log.type === "income");
+  const latestIncome = historyArray.find((log) => log.type === "income");
   if (latestIncome !== undefined) {
     latestIncomeEl.textContent = latestIncome.amount.toLocaleString("en-US", {
       style: "currency",
